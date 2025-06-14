@@ -1,0 +1,16 @@
+<div class="header-container">
+    <a routerLink="/" href="/"  class="logo">Best Smartphones</a>
+    <div class="header-actions">
+        @if (!userLoggedIn()) {
+            <button matButton="elevated" (click)="openLoginDialog()">Log in</button>
+            <button matButton="elevated" (click)="openRegisterDialog()">Register</button>
+        } @else {
+            <span class="user-name">{{ curUser().login }}</span>
+            <a href="#" (click)="logout()">Logout</a>
+            <a href="#" (click)="openBasketDialog(); $event.preventDefault()">
+                <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart_checkout"></mat-icon>
+                <span class="busket-count">{{ count() }}</span>
+            </a>
+        }
+    </div>
+</div>

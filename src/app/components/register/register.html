@@ -1,0 +1,33 @@
+  <H1>Register</H1>
+  <p>Please write login and password(password should be at least 6 characters) and confirm your password</p>
+  <form [formGroup]="form" class="example-form" (ngSubmit)="onRgester()" id="registerForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Login</mat-label>
+      <input matInput formControlName="login" required>
+    </mat-form-field>
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" required>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput formControlName="repPassword" required>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <button type="submit" mat-button [attr.form]="'registerForm'">Register</button>
+  </form>
+  @if (loginIsValid) {
+    <p class="control-error">Please enter a valid login address.</p>
+  }
+  @if (passwordlIsValid) {
+    <p class="control-error">Please enter a valid password(at least 6 characters long amd contain quastion mark).</p>
+  }

@@ -1,59 +1,75 @@
 # ShopPractise
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.0.
+## Overview
+ShopPractise is a project created to consolidate and enhance knowledge in Angular development. It serves as a practical exercise to apply and deepen understanding of Angular concepts.
 
-## Development server
+## Features
+- Built with **Angular v20**
+- Backend powered by **Node.js** (Express) using JSON files for data storage
+- Designed for learning and experimentation
 
-To start a local development server, run:
 
+## Getting Started
+
+### 1. Clone the repository
+
+### 2. Install dependencies
+
+#### Frontend (Angular)
 ```bash
+npm install
+```
+
+#### Backend (Node.js)
+```bash
+cd backend
+npm install
+cd ..
+```
+
+### 3. Run the backend server
+```bash
+cd backend
+npm start
+# or
+node app.js
+```
+The backend will run at [http://localhost:3000].
+
+### 4. Start the Angular frontend
+```bash
+npm start
+# or
 ng serve
 ```
+The frontend will run at [http://localhost:4200].
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Project Structure
+shop-practise/
+│
+├── backend/              # Node.js Express backend
+│   ├── app.js
+│   ├── package.json
+│   └── data/             # JSON files (users.json, smartphones.json, etc.)
+│
+├── src/app/              # Angular frontend source code
+│   ├── components/
+│   ├── services/
+│   └── ...
+│
+├── package.json          # Angular project config
+└── README.md
 
-## Code scaffolding
+## Usage
+- Open [http://localhost:4200]in your browser.
+- The app communicates with the backend at [http://localhost:3000](http://localhost:3000).
+- Use the UI to browse, filter, and manage smartphones, register/login, and manage your basket.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Notes
+- This project is for educational purposes only. Do **not** use plain-text passwords or JSON files for real applications.
+- If you encounter issues, check the browser console and backend terminal for errors.
+- Make sure both frontend and backend servers are running.
 
-```bash
-ng generate component component-name
-```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## License
+Use wherever you want

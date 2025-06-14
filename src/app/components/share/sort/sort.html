@@ -1,0 +1,9 @@
+<mat-form-field>
+  <mat-label for="sort">Sort by</mat-label>
+  <select id="sort" matNativeControl required (change)="onSortChange($event)">
+    <option value="lh">Low to High</option>
+    <option value="hl">High to Low</option>
+    <option value="az">A to Z</option> 
+    <option value="za">Z to A</option>
+  </select>
+</mat-form-field>

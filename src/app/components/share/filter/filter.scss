@@ -1,0 +1,23 @@
+:host section{
+    padding: 5px;
+    background-color: #cfe0f1;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.filter-content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+}
+
+:host h4{
+    margin: 0;
+    padding-left: 30px;
+}
+
+.filter-content.open {
+  max-height: 1000px;
+  opacity: 1;
+}

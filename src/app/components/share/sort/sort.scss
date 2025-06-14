@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+:host:first-child {
+    margin-right: 10px;
+}
+
+:host ::ng-deep .mat-mdc-form-field-bottom-align {
+    display: none !important;
+}

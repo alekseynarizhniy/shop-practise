@@ -1,0 +1,16 @@
+:host {
+    margin: 15px;
+    max-width: 350px;
+}
+.smartphone-card {
+    width: 100%
+}
+
+:host footer p{
+    margin-right: 15px;
+}
+
+:host footer{
+    display: flex;
+    justify-content: space-between;
+}

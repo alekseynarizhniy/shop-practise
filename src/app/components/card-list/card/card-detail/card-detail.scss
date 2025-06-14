@@ -1,0 +1,10 @@
+:host footer p{
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+:host footer{
+    display: flex;
+    justify-content: space-between;
+}

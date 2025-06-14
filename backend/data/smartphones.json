@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "name": "Huawei Phone 29 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 378.76,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "h29p.jpg",
+    "specs": {
+      "screen": "6.8\" OLED",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "256 GB",
+      "battery": "4976 mAh",
+      "camera": "64 MP + 16 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Realme Phone 24 Pro",
+    "description": "Realme's latest model with cutting-edge features.",
+    "price": 911.0,
+    "brand": "Realme",
+    "category": "Smartphones",
+    "image": "rGT524.jpg",
+    "specs": {
+      "screen": "6.2\" OLED",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "256 GB",
+      "battery": "4849 mAh",
+      "camera": "108 MP + 12 MP",
+      "os": "HarmonyOS"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Apple Phone 22 Pro",
+    "description": "Apple's latest model with cutting-edge features.",
+    "price": 1142.43,
+    "brand": "Apple",
+    "category": "Smartphones",
+    "image": "a22p.jpg",
+    "specs": {
+      "screen": "6.3\" OLED",
+      "resolution": "2400x1080",
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "battery": "3281 mAh",
+      "camera": "50 MP + 12 MP",
+      "os": "Android 13"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Huawei Phone 7 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 751.3,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "hp7p.jpg",
+    "specs": {
+      "screen": "5.9\" AMOLED",
+      "resolution": "2400x1080",
+      "ram": "6 GB",
+      "storage": "256 GB",
+      "battery": "4955 mAh",
+      "camera": "108 MP + 12 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Huawei Phone 4 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 704.26,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "h4p.jpg",
+    "specs": {
+      "screen": "6.5\" LCD",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "512 GB",
+      "battery": "4349 mAh",
+      "camera": "64 MP + 16 MP",
+      "os": "iOS 16"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Motorola Phone 23 Pro",
+    "description": "Motorola's latest model with cutting-edge features.",
+    "price": 448.36,
+    "brand": "Motorola",
+    "category": "Smartphones",
+    "image": "m23p.jpg",
+    "specs": {
+      "screen": "5.9\" OLED",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "512 GB",
+      "battery": "3094 mAh",
+      "camera": "108 MP + 12 MP",
+      "os": "MIUI"
+    }
+  },
+  {
+    "id": 7,
+    "name": "Sony Phone 17 Pro",
+    "description": "Sony's latest model with cutting-edge features.",
+    "price": 949.46,
+    "brand": "Sony",
+    "category": "Smartphones",
+    "image": "s17p.jpg",
+    "specs": {
+      "screen": "5.9\" Super Retina XDR",
+      "resolution": "3088x1440",
+      "ram": "12 GB",
+      "storage": "512 GB",
+      "battery": "3186 mAh",
+      "camera": "64 MP + 12 MP",
+      "os": "MIUI"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Apple Phone 21 Pro",
+    "description": "Apple's latest model with cutting-edge features.",
+    "price": 472.42,
+    "brand": "Apple",
+    "category": "Smartphones",
+    "image": "a22p.jpg",
+    "specs": {
+      "screen": "5.9\" LCD",
+      "resolution": "3216x1440",
+      "ram": "8 GB",
+      "storage": "512 GB",
+      "battery": "4057 mAh",
+      "camera": "50 MP + 20 MP",
+      "os": "iOS 16"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Motorola Phone 15 Pro",
+    "description": "Motorola's latest model with cutting-edge features.",
+    "price": 1278.12,
+    "brand": "Motorola",
+    "category": "Smartphones",
+    "image": "m23p.jpg",
+    "specs": {
+      "screen": "6.3\" AMOLED",
+      "resolution": "2556x1179",
+      "ram": "6 GB",
+      "storage": "128 GB",
+      "battery": "4574 mAh",
+      "camera": "64 MP + 20 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Nokia Phone 30 Pro",
+    "description": "Nokia's latest model with cutting-edge features.",
+    "price": 1055.42,
+    "brand": "Nokia",
+    "category": "Smartphones",
+    "image": "n30p.jpg",
+    "specs": {
+      "screen": "5.9\" OLED",
+      "resolution": "2556x1179",
+      "ram": "8 GB",
+      "storage": "128 GB",
+      "battery": "3887 mAh",
+      "camera": "48 MP + 12 MP",
+      "os": "Android 13"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Huawei Phone 24 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 1086.57,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "h29p.jpg",
+    "specs": {
+      "screen": "6.5\" OLED",
+      "resolution": "3216x1440",
+      "ram": "16 GB",
+      "storage": "512 GB",
+      "battery": "4504 mAh",
+      "camera": "50 MP + 20 MP",
+      "os": "Android 13"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Samsung Phone 11 Pro",
+    "description": "Samsung's latest model with cutting-edge features.",
+    "price": 300.52,
+    "brand": "Samsung",
+    "category": "Smartphones",
+    "image": "sm11p.jpg",
+    "specs": {
+      "screen": "6.1\" AMOLED",
+      "resolution": "2400x1080",
+      "ram": "8 GB",
+      "storage": "256 GB",
+      "battery": "3192 mAh",
+      "camera": "108 MP + 16 MP",
+      "os": "HarmonyOS"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Realme Phone 1 Pro",
+    "description": "Realme's latest model with cutting-edge features.",
+    "price": 1253.86,
+    "brand": "Realme",
+    "category": "Smartphones",
+    "image": "rGT524.jpg",
+    "specs": {
+      "screen": "5.9\" AMOLED",
+      "resolution": "2400x1080",
+      "ram": "6 GB",
+      "storage": "256 GB",
+      "battery": "3044 mAh",
+      "camera": "50 MP + 20 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Sony Phone 3 Pro",
+    "description": "Sony's latest model with cutting-edge features.",
+    "price": 535.85,
+    "brand": "Sony",
+    "category": "Smartphones",
+    "image": "s17p.jpg",
+    "specs": {
+      "screen": "6.0\" Super Retina XDR",
+      "resolution": "2400x1080",
+      "ram": "16 GB",
+      "storage": "512 GB",
+      "battery": "3710 mAh",
+      "camera": "48 MP + 20 MP",
+      "os": "HarmonyOS"
+    }
+  },
+  {
+    "id": 15,
+    "name": "Realme Phone 15 Pro",
+    "description": "Realme's latest model with cutting-edge features.",
+    "price": 608.43,
+    "brand": "Realme",
+    "category": "Smartphones",
+    "image": "rGT524.jpg",
+    "specs": {
+      "screen": "6.6\" LCD",
+      "resolution": "2400x1080",
+      "ram": "12 GB",
+      "storage": "256 GB",
+      "battery": "3313 mAh",
+      "camera": "64 MP + 16 MP",
+      "os": "HarmonyOS"
+    }
+  },
+  {
+    "id": 16,
+    "name": "Huawei Phone 26 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 1138.94,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "h29p.jpg",
+    "specs": {
+      "screen": "6.3\" LCD",
+      "resolution": "2400x1080",
+      "ram": "16 GB",
+      "storage": "256 GB",
+      "battery": "3543 mAh",
+      "camera": "108 MP + 16 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Google Phone 13 Pro",
+    "description": "Google's latest model with cutting-edge features.",
+    "price": 1279.0,
+    "brand": "Google",
+    "category": "Smartphones",
+    "image": "g13p.jpg",
+    "specs": {
+      "screen": "6.1\" Super Retina XDR",
+      "resolution": "2556x1179",
+      "ram": "16 GB",
+      "storage": "128 GB",
+      "battery": "4160 mAh",
+      "camera": "50 MP + 12 MP",
+      "os": "Android 13"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Samsung Phone 9 Pro",
+    "description": "Samsung's latest model with cutting-edge features.",
+    "price": 1150.7,
+    "brand": "Samsung",
+    "category": "Smartphones",
+    "image": "sm11p.jpg",
+    "specs": {
+      "screen": "6.7\" LCD",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "256 GB",
+      "battery": "4355 mAh",
+      "camera": "64 MP + 16 MP",
+      "os": "Android 12"
+    }
+  },
+  {
+    "id": 19,
+    "name": "OnePlus Phone 13 Pro",
+    "description": "OnePlus's latest model with cutting-edge features.",
+    "price": 715.5,
+    "brand": "OnePlus",
+    "category": "Smartphones",
+    "image": "o14p.jpg",
+    "specs": {
+      "screen": "6.8\" OLED",
+      "resolution": "3088x1440",
+      "ram": "16 GB",
+      "storage": "256 GB",
+      "battery": "3539 mAh",
+      "camera": "64 MP + 16 MP",
+      "os": "HarmonyOS"
+    }
+  },
+  {
+    "id": 20,
+    "name": "Huawei Phone 27 Pro",
+    "description": "Huawei's latest model with cutting-edge features.",
+    "price": 1195.82,
+    "brand": "Huawei",
+    "category": "Smartphones",
+    "image": "h29p.jpg",
+    "specs": {
+      "screen": "5.8\" AMOLED",
+      "resolution": "3216x1440",
+      "ram": "12 GB",
+      "storage": "512 GB",
+      "battery": "4740 mAh",
+      "camera": "64 MP + 12 MP",
+      "os": "Android 13"
+    }
+  }
+]

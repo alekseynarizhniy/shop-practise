@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "login": "admin",
+    "password": "admin",
+    "basket": [
+      1,
+      6
+    ]
+  },
+  {
+    "id": 2,
+    "login": "user11",
+    "password": "user11",
+    "basket": [
+      6,
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "login": "user12",
+    "password": "user12",
+    "basket": []
+  }
+]

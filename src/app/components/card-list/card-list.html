@@ -1,0 +1,11 @@
+<div>
+      @for (smartphone of paggenedSmartphones(); track smartphone.id) {
+            <app-card [smartphone]="smartphone" />
+      }
+</div>
+<mat-paginator [length]="smartphones().length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="[6, 12, 100]"
+              aria-label="Select page"
+              (page)="handlePageEvent($event)">
+</mat-paginator>

@@ -1,0 +1,23 @@
+:host {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex-wrap: wrap;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-height: 400px) {
+    form {
+        flex-direction: row;
+
+        > *:not(:last-child) {
+            margin-right: 15px;
+        }
+    }
+}

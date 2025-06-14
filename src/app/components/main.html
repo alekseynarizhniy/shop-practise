@@ -1,0 +1,24 @@
+<div>
+    <aside>
+        @if (!isFetching()) {
+            <app-price-filter [minPrice]="minPrice" [maxPrice]="maxPrice" />
+            <app-filter [filters]="screenFilter" [type]="'screen'"/>
+            <app-filter [filters]="ramFilter" [type]="'ram'"/>
+            <app-filter [filters]="storageFilter" [type]="'storage'"/>
+        } @else {
+            <div class="loading">
+                <p>Loading...</p>
+            </div>
+        }
+    </aside>
+    <main>
+        @if (!isFetching()) {
+            <app-sort/>
+            <app-card-list/>
+        } @else {
+            <div class="loading">
+                <p>Loading...</p>
+            </div>
+        }
+    </main>
+</div>

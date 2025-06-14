@@ -1,0 +1,13 @@
+<section>
+  <h4 (click)="toggleSection()" style="cursor:pointer;">
+    {{ type()[0].toUpperCase() + type().slice(1) }}:
+    <span>{{ isOpen() ? '▲' : '▼' }}</span>
+  </h4>
+  <div class="filter-content" [class.open]="isOpen()">
+    @if (isOpen()) {
+        @for (item of filters(); track $index) {
+            <mat-checkbox (change)="onCheckboxChange(item, $event.checked)">{{ item }}</mat-checkbox><br>
+        }
+    }
+  </div>
+</section>

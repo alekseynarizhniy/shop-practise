@@ -1,0 +1,5 @@
+<label for="price-slider">Price Range</label>
+<mat-slider id="price-slider" [min]="minPrice()" [max]="maxPrice()" showTickMarks discrete (input)="onSliderChange(startInput.value, endInput.value)">
+    <input #startInput [min]="minPrice()" matSliderStartThumb>
+    <input #endInput [max]="maxPrice()" matSliderEndThumb>
+</mat-slider>
