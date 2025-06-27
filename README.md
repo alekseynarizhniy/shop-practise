@@ -34,7 +34,7 @@ npm start
 # or
 node app.js
 ```
-The backend will run at [http://localhost:3000].
+The backend will run at [http://localhost:3000](http://localhost:3000).
 
 ### 4. Start the Angular frontend
 ```bash
@@ -42,10 +42,10 @@ npm start
 # or
 ng serve
 ```
-The frontend will run at [http://localhost:4200].
+The frontend will run at [http://localhost:4200](http://localhost:4200).
 
 ## Usage
-- Open [http://localhost:4200](http://localhost:4200)in your browser.
+- Open [http://localhost:4200](http://localhost:4200) in your browser.
 - The app communicates with the backend at [http://localhost:3000](http://localhost:3000).
 - Use the UI to browse, filter, and manage smartphones, register/login, and manage your basket.
 
