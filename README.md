@@ -44,24 +44,8 @@ ng serve
 ```
 The frontend will run at [http://localhost:4200].
 
-## Project Structure
-shop-practise/
-│
-├── backend/              # Node.js Express backend
-│   ├── app.js
-│   ├── package.json
-│   └── data/             # JSON files (users.json, smartphones.json, etc.)
-│
-├── src/app/              # Angular frontend source code
-│   ├── components/
-│   ├── services/
-│   └── ...
-│
-├── package.json          # Angular project config
-└── README.md
-
 ## Usage
-- Open [http://localhost:4200]in your browser.
+- Open [http://localhost:4200](http://localhost:4200)in your browser.
 - The app communicates with the backend at [http://localhost:3000](http://localhost:3000).
 - Use the UI to browse, filter, and manage smartphones, register/login, and manage your basket.
 
