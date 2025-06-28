@@ -5,6 +5,8 @@ import { catchError, map, throwError } from 'rxjs';
 import { smartphone } from '../interfaces/smartphone.model';
 import { ErrorService } from './error.service';
 
+const MAIN_URL = 'https://shop-practise.onrender.com/';
+
 interface Sort {
   order: 'lh' | 'hl' | 'az' | 'za';
   screen: string[];
@@ -14,7 +16,7 @@ interface Sort {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MainService {
   smartphones = signal<smartphone[]>([]);
@@ -23,10 +25,14 @@ export class MainService {
     screen: [],
     ram: [],
     storage: [],
-    price: [0, 100000]
+    price: [0, 100000],
   });
   userLoggedIn = signal<boolean>(false);
-  curUser = signal<{id: number, login: string, basket: number[]}>({ id: 0, login: '', basket: [] });
+  curUser = signal<{ id: number; login: string; basket: number[] }>({
+    id: 0,
+    login: '',
+    basket: [],
+  });
   isFetching = signal<boolean>(false);
 
   private errorService = inject(ErrorService);
@@ -39,33 +45,34 @@ export class MainService {
         this.smartphones.set(data);
       },
       error: () => {
-        this.errorService.showError('Something went wrong with fetching smartphones');
+        this.errorService.showError(
+          'Something went wrong with fetching smartphones'
+        );
       },
       complete: () => {
         this.isFetching.set(false);
         console.log('Smartphones fetching completed');
-      }
+      },
     });
-
 
     const savedForm = window.localStorage.getItem('saved-login-form');
 
-    if(savedForm) {
+    if (savedForm) {
       const user = JSON.parse(savedForm).user;
       console.log('User found in local storage:', user);
-      this.loginUser({ login: user.login, password: user.password }).then(() => {
-        console.log('User logged in from local storage'); 
-      }
-      ).catch(() => {   
-        console.log('Failed to log in user from local storage');
-      });
+      this.loginUser({ login: user.login, password: user.password })
+        .then(() => {
+          console.log('User logged in from local storage');
+        })
+        .catch(() => {
+          console.log('Failed to log in user from local storage');
+        });
     }
-
   }
 
   loadSmartphones() {
     this.isFetching.set(true);
-    const url = 'http://localhost:3000/smartphones';
+    const url = MAIN_URL + 'smartphones';
     const errorMessage = 'Something went wrong with fetching smartphones';
     return this.fetchData(url, errorMessage);
   }
@@ -80,76 +87,104 @@ export class MainService {
     );
   }
 
-  loginUser(credentials: { login: string; password: string }): Promise<boolean> {
-    const url = 'http://localhost:3000/login';
+  loginUser(credentials: {
+    login: string;
+    password: string;
+  }): Promise<boolean> {
+    const url = MAIN_URL + 'login';
     const errorMessage = 'Something went wrong with fetching user';
 
     return new Promise((resolve, reject) => {
-      this.httpClient.post<{ success: boolean;} | { success: {id:number, login: string, basket: number[]}}>(url, credentials).pipe(
-        map((val) => {
-          console.log('Login successful', val.success);
-          return val;
-        }),
-        catchError((error) => {
-          console.log(error);
-          reject(false);
-          return throwError(() => new Error(errorMessage));
-        })
-      ).subscribe({
-        next: (data) => {
-          if (typeof data.success === 'object') {
-            this.userLoggedIn.set(true);
-            this.curUser.set(data.success);
-            window.localStorage.setItem('saved-login-form', JSON.stringify({user: data.success}))
-            console.log('Users fetched successfully', data);
-            resolve(true);
-          } else {
+      this.httpClient
+        .post<
+          | { success: boolean }
+          | { success: { id: number; login: string; basket: number[] } }
+        >(url, credentials)
+        .pipe(
+          map((val) => {
+            console.log('Login successful', val.success);
+            return val;
+          }),
+          catchError((error) => {
+            console.log(error);
+            reject(false);
+            return throwError(() => new Error(errorMessage));
+          })
+        )
+        .subscribe({
+          next: (data) => {
+            if (typeof data.success === 'object') {
+              this.userLoggedIn.set(true);
+              this.curUser.set(data.success);
+              window.localStorage.setItem(
+                'saved-login-form',
+                JSON.stringify({ user: data.success })
+              );
+              console.log('Users fetched successfully', data);
+              resolve(true);
+            } else {
+              this.userLoggedIn.set(false);
+              reject(false);
+            }
+          },
+          error: () => {
             this.userLoggedIn.set(false);
             reject(false);
-          }
-        },
-        error: () => {
-          this.userLoggedIn.set(false);
-          reject(false);
-        }
-      });
+          },
+        });
     });
   }
 
   addUser(user: { login: string; password: string }) {
-    const url = 'http://localhost:3000/users';
+    const url = MAIN_URL + 'users';
     const errorMessage = 'Something went wrong with registering user';
-    return new Promise((resolve, reject) => {   
-      this.httpClient.post<{ success: boolean; } | { success: {id: number, login: string, password: string, basket: number[]}; }>(url, user).pipe(
-        map((val) => {
-          console.log('User registration successful', val.success);
-          return val;
-        }),
-        catchError((error) => {
-          console.log(error);
-          reject(false);
-          return throwError(() => new Error(errorMessage));
-        })
-      ).subscribe({
-        next: (data) => {
-          if (typeof data.success === 'object') {
-            this.userLoggedIn.set(true);
-            this.curUser.set(data.success);
-            window.localStorage.setItem('saved-login-form', JSON.stringify({user: data.success}))
-            resolve(true);
-          } else {
-            this.userLoggedIn.set(false);
+    return new Promise((resolve, reject) => {
+      this.httpClient
+        .post<
+          | { success: boolean }
+          | {
+              success: {
+                id: number;
+                login: string;
+                password: string;
+                basket: number[];
+              };
+            }
+        >(url, user)
+        .pipe(
+          map((val) => {
+            console.log('User registration successful', val.success);
+            return val;
+          }),
+          catchError((error) => {
+            console.log(error);
             reject(false);
-          }
-        },
-        error: () => {
-          reject(false);
-        }
-      });
+            return throwError(() => new Error(errorMessage));
+          })
+        )
+        .subscribe({
+          next: (data) => {
+            if (typeof data.success === 'object') {
+              this.userLoggedIn.set(true);
+              this.curUser.set(data.success);
+              window.localStorage.setItem(
+                'saved-login-form',
+                JSON.stringify({ user: data.success })
+              );
+              resolve(true);
+            } else {
+              this.userLoggedIn.set(false);
+              reject(false);
+            }
+          },
+          error: () => {
+            reject(false);
+          },
+        });
     });
   }
 
-  logout(){
+  logout() {
     window.localStorage.removeItem('saved-login-form');
     this.userLoggedIn.set(false);
     this.curUser.set({ id: 0, login: '', basket: [] });
@@ -175,17 +210,23 @@ export class MainService {
     }
 
     if (filter.screen.length > 0) {
-      newSmartphones = newSmartphones.filter(s => filter.screen.includes(s.specs.screen));
+      newSmartphones = newSmartphones.filter((s) =>
+        filter.screen.includes(s.specs.screen)
+      );
     }
     if (filter.ram.length > 0) {
-      newSmartphones = newSmartphones.filter(s => filter.ram.includes(s.specs.ram));
+      newSmartphones = newSmartphones.filter((s) =>
+        filter.ram.includes(s.specs.ram)
+      );
     }
     if (filter.storage.length > 0) {
-      newSmartphones = newSmartphones.filter(s => filter.storage.includes(s.specs.storage));
+      newSmartphones = newSmartphones.filter((s) =>
+        filter.storage.includes(s.specs.storage)
+      );
     }
 
     newSmartphones = newSmartphones.filter(
-      s => s.price >= filter.price[0] && s.price <= filter.price[1]
+      (s) => s.price >= filter.price[0] && s.price <= filter.price[1]
     );
 
     return newSmartphones;
@@ -194,79 +235,99 @@ export class MainService {
   addToBasket(smartphoneId: number): void {
     if (!this.curUser().basket.includes(smartphoneId)) {
       const userId = this.curUser().id;
-      const url = 'http://localhost:3000/basket';
-      const errorMessage = 'Something went wrong with adding smartphone to basket';
+      const url = MAIN_URL + 'basket';
+      const errorMessage =
+        'Something went wrong with adding smartphone to basket';
 
-      this.httpClient.post<{ success: boolean }>(url, { userId, smartphoneId }).pipe(
+      this.httpClient
+        .post<{ success: boolean }>(url, { userId, smartphoneId })
+        .pipe(
+          map((val) => {
+            console.log('Smartphone add response:', val.success);
+            return val;
+          }),
+          catchError((error) => {
+            console.log(error);
+            return throwError(() => new Error(errorMessage));
+          })
+        )
+        .subscribe({
+          next: (data) => {
+            if (data.success) {
+              const updatedBasket = [...this.curUser().basket, smartphoneId];
+              const curUser = this.curUser();
+              this.curUser.set({
+                ...curUser,
+                basket: updatedBasket,
+              });
+
+              window.localStorage.setItem(
+                'saved-login-form',
+                JSON.stringify({ user: { ...curUser, basket: updatedBasket } })
+              );
+              console.log('Smartphone added to basket successfully');
+            } else {
+              console.error('Failed to add smartphone to basket');
+            }
+          },
+          error: () => {
+            console.error('Error occurred while adding smartphone to basket');
+          },
+        });
+    }
+  }
+
+  removeFromBasket(smartphoneIds: number | number[]): void {
+    const userId = this.curUser().id;
+    const url = MAIN_URL + 'basket';
+    const errorMessage =
+      'Something went wrong with removing smartphone from basket';
+
+    // Ensure smartphoneIds is always an array
+    const idsToRemove = Array.isArray(smartphoneIds)
+      ? smartphoneIds
+      : [smartphoneIds];
+
+    this.httpClient
+      .delete<{ success: boolean }>(url, {
+        body: { userId, smartphoneIds: idsToRemove },
+      })
+      .pipe(
         map((val) => {
-          console.log('Smartphone add response:', val.success);
+          console.log('Smartphone remove response:', val.success);
           return val;
         }),
         catchError((error) => {
           console.log(error);
           return throwError(() => new Error(errorMessage));
         })
-      ).subscribe({
+      )
+      .subscribe({
         next: (data) => {
           if (data.success) {
-            const updatedBasket = [...this.curUser().basket, smartphoneId];
             const curUser = this.curUser();
+            const updatedBasket = curUser.basket.filter(
+              (id) => !idsToRemove.includes(id)
+            );
             this.curUser.set({
               ...curUser,
-              basket: updatedBasket
+              basket: updatedBasket,
             });
-
-            window.localStorage.setItem('saved-login-form', JSON.stringify({user: { ...curUser, basket: updatedBasket }}));
-            console.log('Smartphone added to basket successfully');
+            window.localStorage.setItem(
+              'saved-login-form',
+              JSON.stringify({ user: { ...curUser, basket: updatedBasket } })
+            );
+            console.log('Smartphone(s) removed from basket successfully');
           } else {
-            console.error('Failed to add smartphone to basket');
+            console.error('Failed to remove smartphone(s) from basket');
           }
         },
         error: () => {
-          console.error('Error occurred while adding smartphone to basket');
-        }
+          console.error(
+            'Error occurred while removing smartphone(s) from basket'
+          );
+        },
       });
-    }
-  }
-
-  removeFromBasket(smartphoneIds: number | number[]): void {
-    const userId = this.curUser().id;
-    const url = 'http://localhost:3000/basket';
-    const errorMessage = 'Something went wrong with removing smartphone from basket';
-
-    // Ensure smartphoneIds is always an array
-    const idsToRemove = Array.isArray(smartphoneIds) ? smartphoneIds : [smartphoneIds];
-
-    this.httpClient.delete<{ success: boolean }>(url, {
-      body: { userId, smartphoneIds: idsToRemove }
-    }).pipe(
-      map((val) => {
-        console.log('Smartphone remove response:', val.success);
-        return val;
-      }),
-      catchError((error) => {
-        console.log(error);
-        return throwError(() => new Error(errorMessage));
-      })
-    ).subscribe({
-      next: (data) => {
-        if (data.success) {
-          const curUser = this.curUser();
-          const updatedBasket = curUser.basket.filter(id => !idsToRemove.includes(id));
-          this.curUser.set({
-            ...curUser,
-            basket: updatedBasket
-          });
-          window.localStorage.setItem('saved-login-form', JSON.stringify({user: { ...curUser, basket: updatedBasket }}));
-          console.log('Smartphone(s) removed from basket successfully');
-        } else {
-          console.error('Failed to remove smartphone(s) from basket');
-        }
-      },
-      error: () => {
-        console.error('Error occurred while removing smartphone(s) from basket');
-      }
-    });
   }
 
   getCountOfBasket(): number {

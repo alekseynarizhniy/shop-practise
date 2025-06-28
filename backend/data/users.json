@@ -22,5 +22,19 @@
     "login": "user12",
     "password": "user12",
     "basket": []
+  },
+  {
+    "id": 4,
+    "login": "user23",
+    "password": "user23",
+    "basket": [
+      1
+    ]
+  },
+  {
+    "id": 5,
+    "login": "user45",
+    "password": "user45",
+    "basket": []
   }
 ]
