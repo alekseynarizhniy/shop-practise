@@ -44,7 +44,7 @@ npm start
 node app.js
 ```
 
-The backend will run at [http://localhost:3000](http://localhost:3000).
+The backend will run at [http://localhost:3000].
 
 ### 4. Start the Angular frontend
 
@@ -54,7 +54,7 @@ npm start
 ng serve
 ```
 
-The frontend will run at [http://localhost:4200](http://localhost:4200).
+The frontend will run at [http://localhost:4200].
 
 ## Project Structure
 
@@ -65,11 +65,9 @@ shop-practise/
 │ ├── package.json
 │ └── data/ # JSON files (users.json, smartphones.json, etc.)
 │
-├── src/ # Angular frontend source code
-│ ├── app/
-│ │ ├── components/
-│ │ ├── services/
-│ │ └── ...
+├── src/app/ # Angular frontend source code
+│ ├── components/
+│ ├── services/
 │ └── ...
 │
 ├── package.json # Angular project config
@@ -77,7 +75,7 @@ shop-practise/
 
 ## Usage
 
-- Open [http://localhost:4200](http://localhost:4200) in your browser.
+- Open [http://localhost:4200]in your browser.
 - The app communicates with the backend at [http://localhost:3000](http://localhost:3000).
 - Use the UI to browse, filter, and manage smartphones, register/login, and manage your basket.
 
